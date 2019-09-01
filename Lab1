@@ -152,13 +152,16 @@ public class Main {
                     int b = Integer.parseInt(String.valueOf(c));
                     sum = sum + b;
 
-                }
 
+
+
+                }
             }
-            if (sum == 0) {
+            if (!Character.isDigit(sum)) {
                 System.out.println("Those are not numbers!!!! ");
+
             } else
-                System.out.println(sum);
+                System.out.println("this is the sum of your numbers " + sum);
 
     }
 
