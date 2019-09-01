@@ -1,0 +1,167 @@
+package com.company;
+
+import javax.swing.*;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+                Scanner sc = new Scanner(System.in);
+
+                System.out.println("!##########################################!");
+                System.out.println("!                Welcome To                !");
+                System.out.println("!               My First Lab!              !");
+                System.out.println("!##########################################!");
+                System.out.println("        Would you like to enter? Y/N?       ");
+                String decision = sc.nextLine();
+
+                boolean keepGoing = true;
+
+                if (decision.toLowerCase().equals("y")) {
+
+                    do {
+
+
+
+                    System.out.println("What would you like to do?");
+                    System.out.println("1. Add two numbers");
+                    System.out.println("2. Count the letters of a string");
+                    System.out.println("3. Reverse a string");
+                    System.out.println("4. Sum up all the numbers of a string");
+                    System.out.println("5. Exit");
+
+                    int choice = sc.nextInt();
+
+
+                    switch (choice) {
+                        case 1:
+                            addNumbers(sc);
+                            break;
+                        case 2:
+                            countChar(sc);
+                            break;
+                        case 3:
+                            reverseWord(sc);
+                            break;
+                        case 4:
+                            getvalues();
+                            break;
+                        case 5:
+                            System.out.println("I am sad to see you go");
+                            return;
+
+
+                        default:
+                            System.out.println("have a fucking day!");
+
+                    }
+                    } while (keepGoing == true);
+                }
+                    System.out.println("I am sad to see you go");
+
+    }
+
+
+
+
+//    public static boolean menu(Scanner sc)    {
+//        System.out.println("!##########################################!");
+//        System.out.println("!                Welcome To                !");
+//        System.out.println("!               My First Lab!              !");
+//        System.out.println("!##########################################!");
+//        System.out.println("        Would you like to enter? Y/N?");
+//        String decision = sc.nextLine();
+//
+//        if (decision.toLowerCase().equals("y"))   {
+//            return true;
+//        } else return false;
+//
+//    }
+
+
+
+            public static void addNumbers(Scanner sc)  {
+                System.out.println("please enter two numbers of your choice");
+
+                int numberOne = sc.nextInt();
+                int numberTwo = sc.nextInt();
+                int result = numberOne + numberTwo;
+                System.out.println(numberOne + " + " + numberTwo + " = " + result);
+
+            }
+
+            public static void countChar(Scanner sc)  {
+                System.out.println("Write a cool word and then pick a letter already written. I will help you count how many times you have written said letter");
+                String somethingCool = sc.next();
+                System.out.println("What letter would you like to count?");
+                char c = sc.next().charAt(0);
+                int count = 0;
+
+                for (int i = 0; i < somethingCool.length(); i++) {
+                    if (somethingCool.charAt(i) == c)    {
+                        count++;
+
+                    }
+                }
+                System.out.println("The letter " + c + " Occurs " + count + " times\n");
+
+            }
+            public static void reverseWord(Scanner sc)    {
+                System.out.println("Please input a String for me to reverse");
+
+                StringBuilder rStr = new StringBuilder(sc.next());
+
+                System.out.println();
+                System.out.println("Your string in reverse is = " + rStr.reverse());
+                System.out.println();
+//                String rStr = sc.nextLine();
+//                String reverse = "";
+//
+//
+//                for(int i = rStr.length() - 1; i >= 0; i--)
+//                {
+//                    reverse = reverse + rStr.charAt(i);
+//                }
+//
+//                System.out.println("Reversed string is:");
+//                System.out.println(reverse);
+
+            }
+
+    public static void getvalues() {
+        //Addade ny scanner pga problem med sc. nextLine() hoppades över
+        //Antagligen för att jag har deklarerat en nextInt() med sc som inte används någonstans!?
+        Scanner scgv = new Scanner(System.in);
+
+        System.out.println("Please enter some numbers for me to add^^");
+        String str = scgv.nextLine();
+
+        int sum = 0;
+
+
+            for (int i = 0; i < str.length(); i++) {
+                //charAt gör om tecknen i strängen till objekt(?)
+                //alltså blir char c alla tecknen fast deklarerat när loopen gått igenom allt
+                char c = str.charAt(i);
+                //Här frågar vi om tecknen är siffror och kallar på c
+                if (Character.isDigit(c)) {
+                    //parseint returnerar en int datatyp medans valueof returnerar ett Integer objekt
+                    //integer är en klass och kan därför kalla på metoder i sin klass, t.ex parseint
+                    //      Klass   KallarPå
+                    int b = Integer.parseInt(String.valueOf(c));
+                    sum = sum + b;
+
+                }
+
+            }
+            if (sum == 0) {
+                System.out.println("Those are not numbers!!!! ");
+            } else
+                System.out.println(sum);
+
+    }
+
+
+
+}
